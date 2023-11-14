@@ -21,6 +21,9 @@ int main() {
     
     printf("Enter k:");
     gmp_scanf("%Zd", k);
+    mpz_t xt;
+    mpz_init(xt);
+    mpz_sub_ui(xt,n,1);
     
     if (mpz_cmp_ui(n, 1) <= 0 || mpz_cmp_ui(n, 4) == 0)
         printf("Not a prime\n");
@@ -39,9 +42,9 @@ int main() {
             
            // gmp_printf("%Zd %Zd\n", k, num);
             
-            mpz_powm(result, num, n, n); // Calculate num^n mod n
+            mpz_powm(result, num, xt, n); // Calculate num^n mod n          
             
-            if (mpz_cmp(result, num) != 0){
+            if (mpz_cmp_ui(result, 1) != 0){
                 printf("Given number is not prime\n");
                 flag = 1;
                 break;

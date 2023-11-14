@@ -17,7 +17,7 @@ int main(){
         mpz_init_set_ui(i, 3); //initialize n with 3
         mpz_mul(result, i, i); //find i*i - May be we can optimise this line
 
-        while (mpz_cmp(result,n) < 0) { //if i*i < n
+        while (mpz_cmp(result,n) <= 0) { //if i*i < n
         // While i divides n, print i and divide n
         	while (mpz_divisible_p(n, i) != 0) { //if n%i == 0
             		gmp_printf("%Zd, ", i);
